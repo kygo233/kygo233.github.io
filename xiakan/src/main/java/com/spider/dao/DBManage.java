@@ -21,8 +21,7 @@ public	static ResultSet rs = null;
 	        conn = DriverManager.getConnection(
 					"jdbc:mysql://localhost:3306/spider?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=GMT", "root", "123456");
 //			if(conn==null){System.out.println("连接失败");}
-//			else{System.out.println("连接成功");}
-	    
+//			else{System.out.println("连接成功");
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		} catch (SQLException e) {
