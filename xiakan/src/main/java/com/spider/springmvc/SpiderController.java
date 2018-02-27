@@ -176,7 +176,7 @@ public class SpiderController {
 		ExecutorService pool = Executors.newFixedThreadPool(1);
 		Callable c1 = new NewsSortThread(i);
 		List<News> newslist = (List<News>) pool.submit(c1).get();
-	    System.out.println(newslist.get(2).toString());
+	    //System.out.println(newslist.get(2).toString());
 		model.addAttribute("newslist", newslist);
 		model.addAttribute("msg", "123");
 		pool.shutdown();
@@ -244,8 +244,8 @@ public class SpiderController {
 	@ResponseBody
 	public String login(String name, String password, HttpSession session) {
 		UserService us = new UserService();
-		System.out.println(us.logincheck(name, name));
-		if (us.logincheck(name, name)) {
+		System.out.println(us.logincheck(name, password));
+		if (us.logincheck(name, password)) {
 			int id = us.namecheck(name);
 			User user = new User(id, name, password);
 			session.setAttribute("user", user);
