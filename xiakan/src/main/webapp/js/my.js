@@ -1,5 +1,4 @@
 $(document).ready(function(){
-	
 
 	$(".navbar-nav").find("li").each(function () {
         var a = $(this).find("a:first")[0];
