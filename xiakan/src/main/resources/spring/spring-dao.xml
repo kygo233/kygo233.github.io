@@ -10,32 +10,12 @@
 	<context:property-placeholder location="classpath:jdbc.properties" />
 
 	<!--创建数据源dataSource对象并注入到SqlSessionFactoryBean对象中 -->
-	<bean id="dataSource"
-		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClass" value="${jdbc.driver}" />
 		<property name="jdbcUrl" value="${jdbc.url}" />
 		<property name="user" value="${jdbc.username}" />
 		<property name="password" value="${jdbc.password}" />
 	</bean>
-
-	<!-- 2.数据库连接池 <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"> 
-		<!-- 配置连接池属性 -->
-	<property name="driverClass" value="${jdbc.driver}" />
-	<property name="jdbcUrl" value="${jdbc.url}" />
-	<property name="user" value="${jdbc.username}" />
-	<property name="password" value="${jdbc.password}" />
-
-	<!-- c3p0连接池的私有属性 -->
-	<property name="maxPoolSize" value="30" />
-	<property name="minPoolSize" value="10" />
-	<!-- 关闭连接后不自动commit -->
-	<property name="autoCommitOnClose" value="false" />
-	<!-- 获取连接超时时间 -->
-	<property name="checkoutTimeout" value="10000" />
-	<!-- 当获取连接失败重试次数 -->
-	<property name="acquireRetryAttempts" value="2" />
-</bean>
-	
 
 	<!-- 3.配置SqlSessionFactory对象 -->
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
@@ -44,7 +24,7 @@
 		<!-- 配置MyBaties全局配置文件:mybatis-config.xml -->
 		<property name="configLocation" value="classpath:mybatis-config.xml" />
 		<!-- 扫描entity包 使用别名 -->
-		<property name="typeAliasesPackage" value="com.soecode.lyf.entity" />
+		<property name="typeAliasesPackage" value="com.spider.model" />
 		<!-- 扫描sql配置文件:mapper需要的xml文件 -->
 		<property name="mapperLocations" value="classpath:mapper/*.xml" />
 	</bean>
@@ -54,6 +34,6 @@
 		<!-- 注入sqlSessionFactory -->
 		<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory" />
 		<!-- 给出需要扫描Dao接口包 -->
-		<property name="basePackage" value="com.soecode.lyf.dao" />
+		<property name="basePackage" value="com.spider.dao" />
 	</bean>
 </beans>
