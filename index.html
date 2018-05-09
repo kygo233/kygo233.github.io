@@ -15,7 +15,7 @@
 
 			    $.each(json, function(idx, obj) {
 				console.log(obj.name);
-                   $(".main ul").append("<li>"+obj.name+"</li>");
+                   $(".main ul").append("<li><a href='"+obj.url+"'>"+obj.name+"</a></li>");
                   });
 			 
 			 
